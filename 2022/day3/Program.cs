@@ -1,6 +1,4 @@
 ﻿// https://adventofcode.com/2022/day/3
-using System.Diagnostics;
-
 var lines=File.ReadAllLines("input.txt").ToArray();
 
 int score=0;
