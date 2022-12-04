@@ -5,7 +5,6 @@ Int64 Simulate(IEnumerable<int> initial, int iterations)
 {
     // Bin the fish based on timer
     var fish=new Int64[9];
-
     foreach(var timer in initial)
         fish[timer]++;
 
