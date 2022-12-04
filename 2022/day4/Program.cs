@@ -1,8 +1,6 @@
-﻿// https://adventofcode.com/2022/day/3
-var lines=File.ReadAllLines("input.txt").ToArray();
-
+﻿// https://adventofcode.com/2022/day/4
 int score1=0, score2=0;
-foreach(var l in lines){
+foreach(var l in File.ReadAllLines("input.txt").ToArray()){
     var rng=l.Replace("-",",").Split(",").Select(a=>int.Parse(a)).ToArray();
     if(Contains(rng[0], rng[1], rng[2],rng[3]))
         score1++;
