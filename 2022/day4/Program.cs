@@ -12,4 +12,4 @@ bool Contains(int a0,int a1,int b0,int b1) => (b0>=a0 && b1<=a1) || (b0<=a0 && b
 bool Overlaps(int a0,int a1,int b0,int b1) => !(b1<a0 || b0>a1);
 
 Console.WriteLine($"Part 1 score: {score1}");
-Console.WriteLine($"Part 1 score: {score2}");
+Console.WriteLine($"Part 2 score: {score2}");
