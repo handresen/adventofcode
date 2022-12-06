@@ -1,41 +1,19 @@
 ﻿// https://adventofcode.com/2022/day/6
 var s=File.ReadAllText("input.txt");
-int i;
-for(i=0;i<s.Length;i++){
-    if(!CheckUniqueHash(s,i,4))
-        continue;
-    break;
-}
-Console.WriteLine($"Part 1:{i+4}");
+Console.WriteLine($"Part 1:{SlidingCheck(s,4)}");
+Console.WriteLine($"Part 2:{SlidingCheck(s,14)}");
 
-for(i=0;i<s.Length;i++){
-    if(!CheckUniqueBin(s,i,14))
-        continue;
-    break;
-}
-Console.WriteLine($"Part 2:{i+14}");
-
-bool CheckUniqueBin(string s, int idx, int count){
+int SlidingCheck(string s, int window){
     var bins = new int[27];
-    while(count-->0){
-        int c=s[idx++]-'a';
-        bins[c]++;
-        if(bins[c]>=2)
-            return false;
+    int unique = 0, idx=window;
+    foreach(var c in s.Take(window)){
+        unique+=bins[c-'a']++==0?1:0;
+    };
+    for(int i=window;i<s.Length;i++){
+        if(unique==window)
+            return i;
+        if(--bins[s[i-window]-'a']==0) unique--;
+        if(++bins[s[i]-'a']==1) unique++;        
     }
-    return true;
+    return -1;
 }
-
-bool CheckUniqueHash(string s, int idx, int count){
-    var h=new HashSet<char>();
-    while(count-->0){
-        char c=s[idx++];
-        if(h.Contains(c))
-            return false;
-        h.Add(c);
-    }
-    return true;
-}
-
-
-
