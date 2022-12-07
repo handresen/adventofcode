@@ -21,7 +21,6 @@ foreach(var l in lines){
     }
     else if(parts[0]=="dir"){
         current.subdirs[parts[1]]=new Dir(current);
-        continue;
     }
     else if(int.TryParse(parts[0],out var len)){
         current.files[parts[1]]=len;
