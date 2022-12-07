@@ -3,6 +3,8 @@ var s=File.ReadAllText("input.txt");
 Console.WriteLine($"Part 1:{SlidingCheck(s,4)}");
 Console.WriteLine($"Part 2:{SlidingCheck(s,14)}");
 
+// For fun, keep track of unique count using sliding window rather than determine
+// duplicates in each window. Likely much faster execution times for large files
 int SlidingCheck(string s, int window){
     var bins = new int[27];
     int unique = 0, idx=window;
