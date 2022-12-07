@@ -43,4 +43,4 @@ foreach(var cmd in commands)
             stacks[to-1].Push(c);        
     }
 }
-Console.WriteLine($"Part 1 result: {string.Join("",stacks.Select(s=>s.Peek()))}");
+Console.WriteLine($"Part 2 result: {string.Join("",stacks.Select(s=>s.Peek()))}");
