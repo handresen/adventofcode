@@ -2,6 +2,18 @@
 var s=File.ReadAllText("input.txt");
 Console.WriteLine($"Part 1:{SlidingCheck(s,4)}");
 Console.WriteLine($"Part 2:{SlidingCheck(s,14)}");
+Console.WriteLine($"Part 1:{RangeCheck(s,4)}");
+Console.WriteLine($"Part 2:{RangeCheck(s,14)}");
+
+
+// Use .net ranges
+int RangeCheck(string s, int window){
+    for(int i=0;i<s.Length-window;i++)
+        if(new HashSet<char>(s[i..(i+window)]).Count()==window)
+            return i+window;
+    return -1;
+}
+
 
 // For fun, keep track of unique count using sliding window rather than determine
 // duplicates in each window. Likely much faster execution times for large files
